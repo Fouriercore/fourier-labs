@@ -27,16 +27,6 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
 
       <Container className="relative z-10 text-center space-y-10">
         
-        {/* Release Version Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center rounded-full border border-[#06fec8]/25 bg-[#06fec8]/5 px-4 py-1.5 font-mono text-xs font-semibold tracking-widest text-[#06fec8] hover:border-[#06fec8]/45 transition-colors"
-        >
-          SOROBAN REPUTATION PROTOCOL
-        </motion.div>
-
         {/* Large Display Headline */}
         <div className="space-y-6 max-w-5xl mx-auto">
           <motion.h1
