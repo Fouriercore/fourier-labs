@@ -46,3 +46,6 @@ Vectors leverage pure CSS glow variables and responsive flex ratios to align lay
 ## Navigation Routing
 
 Responsive links detect router paths to highlight active tabs with symbolic terminal indicator signs.
+## Empty Screen Prompts
+
+When loading files for the first time, placeholders prompt user action and reference scan targets.
