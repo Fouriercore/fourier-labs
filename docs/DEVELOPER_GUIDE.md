@@ -43,3 +43,6 @@ Typing configurations define rigid enums covering severity ranges from none up t
 ## Brand Assets
 
 Vectors leverage pure CSS glow variables and responsive flex ratios to align layouts dynamically.
+## Navigation Routing
+
+Responsive links detect router paths to highlight active tabs with symbolic terminal indicator signs.
