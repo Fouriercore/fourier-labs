@@ -16,3 +16,6 @@ We classify threats into rug pulls, exploits, phishing vectors, fake tokens, spa
 ## Caching and Local Storage
 
 Recent scan operations are recorded inside localStorage to prevent redundant network telemetry calls during audits.
+## Styling Conventions
+
+Components adopt glassmorphic, terminal-cyberpunk visual properties. Color accents strictly represent severity.
