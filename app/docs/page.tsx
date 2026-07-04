@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "Comprehensive guide to Fourier integration, contract telemetry endpoints, and the threat classification matrix for Soroban.",
 };
 
+/**
+ * Renders technical guides, routing schemas, API documentation, and threat matrix lists.
+ */
 export default function DocsPage() {
   return (
     <div className="relative py-16 md:py-24 bg-black">
