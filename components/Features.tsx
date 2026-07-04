@@ -1,3 +1,6 @@
+/**
+ * Features component mapping the capabilities of the threat shield ecosystem.
+ */
 import React from "react";
 import { 
   ShieldCheck, 
