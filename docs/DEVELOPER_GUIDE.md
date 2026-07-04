@@ -22,3 +22,6 @@ Components adopt glassmorphic, terminal-cyberpunk visual properties. Color accen
 ## Interface State Transition
 
 Scanner console shifts between empty, query-loading, analysis-failure, and completed reputation telemetry states.
+## Pull Request Policy
+
+Pull requests must document code improvements, avoid empty commits, and include type validation before merge.
