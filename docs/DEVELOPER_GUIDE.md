@@ -49,3 +49,6 @@ Responsive links detect router paths to highlight active tabs with symbolic term
 ## Empty Screen Prompts
 
 When loading files for the first time, placeholders prompt user action and reference scan targets.
+## Error Handling Boundaries
+
+Telemetry fetches contain retry bindings. Catch clauses parse response errors or fall back to system errors.
