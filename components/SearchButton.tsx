@@ -1,3 +1,6 @@
+/**
+ * Interactive button containing search status transitions and loading indicators.
+ */
 import React from "react";
 import { ShieldCheck } from "lucide-react";
 import { cn } from "@/utils/cn";
