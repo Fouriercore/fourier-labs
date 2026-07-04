@@ -19,3 +19,6 @@ Recent scan operations are recorded inside localStorage to prevent redundant net
 ## Styling Conventions
 
 Components adopt glassmorphic, terminal-cyberpunk visual properties. Color accents strictly represent severity.
+## Interface State Transition
+
+Scanner console shifts between empty, query-loading, analysis-failure, and completed reputation telemetry states.
