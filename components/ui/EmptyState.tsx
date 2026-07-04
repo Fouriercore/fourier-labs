@@ -1,3 +1,7 @@
+/**
+ * EmptyState component displayed when no scan result is active.
+ * Prompts the user to search for a contract address.
+ */
 import React from "react";
 import { Search } from "lucide-react";
 import { cn } from "@/utils/cn";
