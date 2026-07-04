@@ -1,3 +1,6 @@
+/**
+ * StatusBadge component rendering reputation verdicts (Safe, Unknown, Scam Alert).
+ */
 import React from "react";
 import { ShieldCheck, AlertCircle, ShieldAlert } from "lucide-react";
 import { RiskStatus } from "@/types";
