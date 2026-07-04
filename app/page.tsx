@@ -85,6 +85,63 @@ export default function Home() {
           {/* SearchBar Input */}
           <SearchBar onSearch={handleSearch} isLoading={loading} initialAddress={searchedAddress} />
 
+          {/* Quick-Start Sandbox Examples */}
+          <div className="max-w-3xl mx-auto space-y-2.5">
+            <div className="flex items-center gap-1.5 px-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#06fec8] animate-ping" />
+              <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                Sandbox Testbeds
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {[
+                {
+                  name: "Soroban Swap Pool v1",
+                  status: "safe",
+                  address: "CA3D5RW6ARYNMSND57NVHSTRW4CD6B4UQQE246TRPFR6CP6NJ2C7HWSU",
+                  badgeClass: "bg-[#04ed16]/10 text-[#04ed16] border-[#04ed16]/20",
+                },
+                {
+                  name: "Flash-Loan Exploit Helper",
+                  status: "scam",
+                  address: "CB3D5RW6ARYNMSND57NVHSTRW4CD6B4UQQE246TRPFR6CP6NJ2C7HACK",
+                  badgeClass: "bg-red-500/10 text-red-400 border-red-500/20",
+                },
+                {
+                  name: "USDC Token Impersonator",
+                  status: "scam",
+                  address: "CD3D5RW6ARYNMSND57NVHSTRW4CD6B4UQQE246TRPFR6CP6NJ2C7SCAM",
+                  badgeClass: "bg-red-500/10 text-red-400 border-red-500/20",
+                },
+                {
+                  name: "Phishing Swap Portal",
+                  status: "scam",
+                  address: "CF3D5RW6ARYNMSND57NVHSTRW4CD6B4UQQE246TRPFR6CP6NJ2C7FISH",
+                  badgeClass: "bg-red-500/10 text-red-400 border-red-500/20",
+                },
+              ].map((sandbox) => (
+                <button
+                  key={sandbox.address}
+                  onClick={() => handleSearch(sandbox.address)}
+                  disabled={loading}
+                  className="flex items-center justify-between text-left p-3 rounded-lg border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all duration-200 group disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="space-y-0.5 truncate pr-2">
+                    <div className="font-mono text-xs text-gray-300 font-bold group-hover:text-white transition-colors">
+                      {sandbox.name}
+                    </div>
+                    <div className="font-mono text-[9px] text-gray-500 truncate max-w-[240px] sm:max-w-xs">
+                      {sandbox.address}
+                    </div>
+                  </div>
+                  <span className={`font-mono text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 border rounded flex-shrink-0 ${sandbox.badgeClass}`}>
+                    {sandbox.status}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Search Results Display Area */}
           <div className="mt-8">
             {loading && (
