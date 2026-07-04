@@ -40,3 +40,6 @@ Footers compile official Soroban links, GitHub repositories, and security polici
 ## Extended Index Metadata
 
 Typing configurations define rigid enums covering severity ranges from none up to critical vulnerability tags.
+## Brand Assets
+
+Vectors leverage pure CSS glow variables and responsive flex ratios to align layouts dynamically.
