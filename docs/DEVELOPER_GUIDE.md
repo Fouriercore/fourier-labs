@@ -37,3 +37,6 @@ Validators trim inputs, normalize letter casing, and evaluate checksum patterns 
 ## Resource Indexing
 
 Footers compile official Soroban links, GitHub repositories, and security policies to anchor community reach.
+## Extended Index Metadata
+
+Typing configurations define rigid enums covering severity ranges from none up to critical vulnerability tags.
