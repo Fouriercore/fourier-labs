@@ -1,3 +1,6 @@
+/**
+ * SearchBar component containing contract input console validation and form submission.
+ */
 "use client";
 
 import React, { useState, useEffect } from "react";
