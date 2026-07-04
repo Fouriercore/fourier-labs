@@ -1,3 +1,7 @@
+/**
+ * Global layout footer component.
+ * Displays brand info, resources links, community links, and copyright signatures.
+ */
 import React from "react";
 import Link from "next/link";
 import { Github, Shield, Heart } from "lucide-react";
