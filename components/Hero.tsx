@@ -1,3 +1,7 @@
+/**
+ * Hero Banner component.
+ * Renders standard welcome visuals, scan console links, and title grids.
+ */
 "use client";
 
 import React from "react";
