@@ -58,3 +58,7 @@ Grid items highlight future phases including browser extensions, webhook alerts,
 ## Severity Assessment Metrics
 
 Scam badges utilize standard CSS animations to draw attention, while safe indicators maintain solid boundaries.
+## Terms Glossary
+
+- **Soroban**: Stellar Wasm smart contract framework.
+- **StrKey**: String key encoding utilizing CRC16.
