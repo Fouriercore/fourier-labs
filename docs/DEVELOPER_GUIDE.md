@@ -10,3 +10,6 @@ Next.js 15 route params are resolved as Promises. The route controller asynchron
 ## Stellar Base32 Encoding
 
 Stellar address strings utilize RFC 4648 Base32 alphabet constraints (A-Z, 2-7) with a dedicated C-prefix representing contracts.
+## Threat Matrix & Categories
+
+We classify threats into rug pulls, exploits, phishing vectors, fake tokens, spam claiming portals, and malware injections.
