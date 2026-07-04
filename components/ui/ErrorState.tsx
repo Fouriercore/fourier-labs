@@ -1,3 +1,7 @@
+/**
+ * ErrorState component displayed during scan or telemetry server failures.
+ * Displays failure messages and offers retry actions.
+ */
 import React from "react";
 import { AlertCircle, RefreshCw } from "lucide-react";
 import { cn } from "@/utils/cn";
