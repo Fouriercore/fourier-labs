@@ -20,6 +20,9 @@ const monoFont = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+/**
+ * Global application SEO and OpenGraph metadata configuration.
+ */
 export const metadata: Metadata = {
   title: "Fourier | Soroban Smart Contract Reputation Platform",
   description: "Identify malicious or suspicious Soroban smart contracts before signing blockchain transactions. Scan addresses for rug pulls, phishing, and exploits.",
