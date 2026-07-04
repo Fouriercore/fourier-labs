@@ -1,3 +1,7 @@
+/**
+ * Navigation Bar component.
+ * Handles header layout, links to core pages, and mobile responsive menus.
+ */
 "use client";
 
 import React, { useState } from "react";
