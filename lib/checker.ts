@@ -17,6 +17,12 @@ export function isValidSorobanAddress(address: string): boolean {
  * Checks the reputation status of a Soroban contract address.
  * Reads from the local JSON database and returns structured risk response.
  */
+/**
+ * Resolves contract threat intelligence indicators by loading JSON profiles.
+ * 
+ * @param address - Soroban contract address.
+ * @returns Calculated safety verdict response.
+ */
 export function checkContract(address: string): RiskResponse {
   const cleanAddress = address.trim();
 
