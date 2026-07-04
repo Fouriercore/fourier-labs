@@ -1,3 +1,7 @@
+/**
+ * Responsive content container component.
+ * Centers layout and provides standard horizontal padding bounds.
+ */
 import React from "react";
 import { cn } from "@/utils/cn";
 
