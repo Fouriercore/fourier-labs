@@ -18,6 +18,9 @@ import EmptyState from "@/components/ui/EmptyState";
 import ErrorState from "@/components/ui/ErrorState";
 import { RiskResponse } from "@/types";
 
+/**
+ * Homepage rendering the search portal workspace, telemetry console, and guide pillars.
+ */
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<RiskResponse | null>(null);
