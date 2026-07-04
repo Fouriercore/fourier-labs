@@ -1,3 +1,7 @@
+/**
+ * Fourier brand logo component.
+ * Renders dynamic SVG representing network telemetry security shields.
+ */
 import React from "react";
 
 interface LogoProps extends React.ImgHTMLAttributes<HTMLImageElement> {
