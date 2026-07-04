@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { 
   Terminal, 
   GitBranch, 
@@ -26,8 +26,30 @@ export default function Home() {
   const [result, setResult] = useState<RiskResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [searchedAddress, setSearchedAddress] = useState("");
+  const [recentScans, setRecentScans] = useState<string[]>([]);
   
   const searchSectionRef = useRef<HTMLDivElement>(null);
+
+  // Load recent scans on mount (safely for Next SSR)
+  useEffect(() => {
+    const saved = localStorage.getItem("fourier_recent_scans");
+    if (saved) {
+      try {
+        setRecentScans(JSON.parse(saved));
+      } catch (e) {
+        console.error("Error parsing recent scans:", e);
+      }
+    }
+  }, []);
+
+  const saveRecentScan = (address: string) => {
+    const normalized = address.toUpperCase().trim();
+    setRecentScans((prev) => {
+      const updated = [normalized, ...prev.filter((addr) => addr !== normalized)].slice(0, 5);
+      localStorage.setItem("fourier_recent_scans", JSON.stringify(updated));
+      return updated;
+    });
+  };
 
   const scrollToSearch = () => {
     searchSectionRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -48,6 +70,9 @@ export default function Home() {
       }
 
       setResult(data.data);
+      if (data.data && data.data.address) {
+        saveRecentScan(data.data.address);
+      }
     } catch (err) {
       console.error(err);
       const errMsg = err instanceof Error ? err.message : "An unexpected error occurred while communicating with the telemetry server.";
@@ -141,6 +166,41 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Recent Scans history */}
+          {recentScans.length > 0 && (
+            <div className="max-w-3xl mx-auto space-y-2 pt-4 border-t border-white/5">
+              <div className="flex items-center justify-between px-1">
+                <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                  Recent Audits
+                </span>
+                <button
+                  onClick={() => {
+                    setRecentScans([]);
+                    localStorage.removeItem("fourier_recent_scans");
+                  }}
+                  className="font-mono text-[9px] text-gray-500 hover:text-red-400 uppercase tracking-wider font-bold transition-colors"
+                >
+                  Clear History
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {recentScans.map((addr) => (
+                  <button
+                    key={addr}
+                    onClick={() => handleSearch(addr)}
+                    disabled={loading}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#06fec8]/30 transition-all duration-200 group text-left disabled:opacity-50"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:bg-[#06fec8] transition-colors" />
+                    <span className="font-mono text-[10px] text-gray-400 group-hover:text-white transition-colors max-w-[200px] sm:max-w-xs truncate">
+                      {addr}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Search Results Display Area */}
           <div className="mt-8">
