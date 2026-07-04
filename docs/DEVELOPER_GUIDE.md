@@ -25,3 +25,6 @@ Scanner console shifts between empty, query-loading, analysis-failure, and compl
 ## Pull Request Policy
 
 Pull requests must document code improvements, avoid empty commits, and include type validation before merge.
+## CI/CD Pipeline
+
+GitHub actions build scripts run type validation checks and Next.js builds on every push to verify codebase health.
