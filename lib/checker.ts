@@ -1,30 +1,14 @@
 import fs from "fs";
 import path from "path";
 import { Contract, RiskResponse } from "@/types";
-
-/**
- * Validates whether the given string is a valid Soroban smart contract address format.
- * Soroban contract addresses are 56 characters, starting with 'C', in Base32 alphabet (A-Z, 2-7).
- */
-export function isValidSorobanAddress(address: string): boolean {
-  if (!address) return false;
-  const normalized = address.toUpperCase().trim();
-  const sorobanRegex = /^C[A-Z2-7]{55}$/;
-  return sorobanRegex.test(normalized);
-}
+import { isValidSorobanAddress } from "@/utils/validation";
 
 /**
  * Checks the reputation status of a Soroban contract address.
  * Reads from the local JSON database and returns structured risk response.
  */
-/**
- * Resolves contract threat intelligence indicators by loading JSON profiles.
- * 
- * @param address - Soroban contract address.
- * @returns Calculated safety verdict response.
- */
 export function checkContract(address: string): RiskResponse {
-  const cleanAddress = address.trim();
+  const cleanAddress = address.toUpperCase().trim();
 
   // 1. Check if the address format is correct
   if (!isValidSorobanAddress(cleanAddress)) {
