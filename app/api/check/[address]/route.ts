@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { checkContract } from "@/lib/checker";
 import { APIResponse } from "@/types";
 
+/**
+ * API Endpoint GET handler checking contract safety parameters.
+ * Resolves dynamic parameters asynchronously matching Next 15 standard.
+ */
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ address: string }> }
