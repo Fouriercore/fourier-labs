@@ -1,3 +1,6 @@
+/**
+ * Fallback 404 page styled with a dark terminal terminal-theme.
+ */
 import React from "react";
 import Link from "next/link";
 import { ShieldAlert, ArrowLeft } from "lucide-react";
