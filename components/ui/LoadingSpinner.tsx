@@ -1,3 +1,7 @@
+/**
+ * LoadingSpinner component displayed during background telemetry analysis.
+ * Features a smooth CSS rotation animation.
+ */
 import React from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/utils/cn";
