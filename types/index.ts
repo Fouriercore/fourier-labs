@@ -1,3 +1,6 @@
+/**
+ * Core type definitions for Fourier reputation registry and scanning telemetry schemas.
+ */
 export type RiskStatus = "safe" | "unknown" | "scam";
 
 export type RiskSeverity = "none" | "low" | "medium" | "high" | "critical";
