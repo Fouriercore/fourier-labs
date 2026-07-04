@@ -52,3 +52,6 @@ When loading files for the first time, placeholders prompt user action and refer
 ## Error Handling Boundaries
 
 Telemetry fetches contain retry bindings. Catch clauses parse response errors or fall back to system errors.
+## Features Pillars Grid
+
+Grid items highlight future phases including browser extensions, webhook alerts, and native wallets.
