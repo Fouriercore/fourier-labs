@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "Learn about the mission behind Fourier, our open source philosophy, and the security architecture defending users in the Soroban smart contract network.",
 };
 
+/**
+ * Renders the mission statement, problem space, and future development vectors.
+ */
 export default function AboutPage() {
   return (
     <div className="relative py-16 md:py-24 bg-black">
