@@ -55,3 +55,6 @@ Telemetry fetches contain retry bindings. Catch clauses parse response errors or
 ## Features Pillars Grid
 
 Grid items highlight future phases including browser extensions, webhook alerts, and native wallets.
+## Severity Assessment Metrics
+
+Scam badges utilize standard CSS animations to draw attention, while safe indicators maintain solid boundaries.
