@@ -31,3 +31,6 @@ GitHub actions build scripts run type validation checks and Next.js builds on ev
 ## Core Contract Schema
 
 The JSON database stores addresses, descriptions, update timestamps, security levels, and confidence ranges.
+## Validator Utilities
+
+Validators trim inputs, normalize letter casing, and evaluate checksum patterns before execution pipelines start.
