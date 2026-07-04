@@ -62,3 +62,6 @@ Scam badges utilize standard CSS animations to draw attention, while safe indica
 
 - **Soroban**: Stellar Wasm smart contract framework.
 - **StrKey**: String key encoding utilizing CRC16.
+## Troubleshooting
+
+For build failures, ensure your dependencies align with Next 15 node requirements and run type validation commands.
