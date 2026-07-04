@@ -34,3 +34,6 @@ The JSON database stores addresses, descriptions, update timestamps, security le
 ## Validator Utilities
 
 Validators trim inputs, normalize letter casing, and evaluate checksum patterns before execution pipelines start.
+## Resource Indexing
+
+Footers compile official Soroban links, GitHub repositories, and security policies to anchor community reach.
