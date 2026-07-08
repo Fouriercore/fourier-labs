@@ -1,0 +1,8 @@
+[
+  {
+    "id": "sub_01",
+    "url": "https://example.com/hooks/fourier-alerts",
+    "label": "Example Alert Receiver",
+    "registeredAt": "2026-07-01T00:00:00Z"
+  }
+]
