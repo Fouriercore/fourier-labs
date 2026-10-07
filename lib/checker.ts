@@ -3,11 +3,17 @@ import path from "path";
 import { Contract, RiskResponse } from "@/types";
 import { isValidSorobanAddress } from "@/utils/validation";
 
+import { calculateConfidenceScore, ContractTelemetryMetrics } from "@/utils/scoring";
+
 /**
  * Checks the reputation status of a Soroban contract address.
  * Reads from the local JSON database and returns structured risk response.
+ * Optionally calculates dynamic confidence metric based on provided telemetry.
  */
-export function checkContract(address: string): RiskResponse {
+export function checkContract(
+  address: string,
+  telemetry?: Partial<ContractTelemetryMetrics>
+): RiskResponse {
   const cleanAddress = address.toUpperCase().trim();
 
   // 1. Check if the address format is correct
@@ -15,7 +21,8 @@ export function checkContract(address: string): RiskResponse {
     return {
       address: cleanAddress,
       status: "unknown",
-      reason: "Invalid Soroban contract address format. Contract addresses must start with 'C', be exactly 56 characters long, and use the Base32 uppercase alphabet (A-Z, 2-7).",
+      reason:
+        "Invalid Soroban contract address format. Contract addresses must start with 'C', be exactly 56 characters long, and use the Base32 uppercase alphabet (A-Z, 2-7).",
       riskLevel: "medium",
       confidence: 0,
       category: "none",
@@ -26,7 +33,7 @@ export function checkContract(address: string): RiskResponse {
   // 2. Query from the JSON database
   try {
     const filePath = path.join(process.cwd(), "data", "contracts.json");
-    
+
     // Safety check in case the file doesn't exist yet
     if (fs.existsSync(filePath)) {
       const fileData = fs.readFileSync(filePath, "utf-8");
@@ -38,12 +45,16 @@ export function checkContract(address: string): RiskResponse {
       );
 
       if (foundContract) {
+        const computedConfidence = telemetry
+          ? calculateConfidenceScore(telemetry)
+          : foundContract.confidence;
+
         return {
           address: foundContract.address,
           status: foundContract.status,
           reason: foundContract.reason,
           riskLevel: foundContract.riskLevel,
-          confidence: foundContract.confidence,
+          confidence: computedConfidence,
           category: foundContract.category,
           lastUpdated: foundContract.lastUpdated,
         };
@@ -55,12 +66,15 @@ export function checkContract(address: string): RiskResponse {
   }
 
   // 3. Fallback for valid but unlisted contract addresses
+  const fallbackConfidence = telemetry ? calculateConfidenceScore(telemetry) : 50;
+
   return {
     address: cleanAddress,
     status: "unknown",
-    reason: "This address has not been registered in the Fourier threat intelligence database. No active security issues or safety verifications reported.",
+    reason:
+      "This address has not been registered in the Fourier threat intelligence database. No active security issues or safety verifications reported.",
     riskLevel: "medium",
-    confidence: 50,
+    confidence: fallbackConfidence,
     category: "none",
     lastUpdated: new Date().toISOString(),
   };
