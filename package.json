@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "tsc utils/scoring.ts utils/scoring.test.ts --target es2022 --module commonjs --moduleResolution node --esModuleInterop --outDir ./dist/test && node -e \"require('fs').writeFileSync('./dist/test/package.json', JSON.stringify({type:'commonjs'}))\" && node --test ./dist/test/scoring.test.js",
     "format": "prettier --write .",
     "prepare": "husky"
   },
